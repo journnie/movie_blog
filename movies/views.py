@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Movie
+from .forms import MovieForm
 
 
 # Create your views here.
@@ -16,25 +17,48 @@ def index(request):
 
 
 def create(request):
+    # saving
     if request.method == 'POST':
-        data = request.POST
-        movie = Movie()
-        movie.title = data.get('title')
-        movie.content = data.get('content')
-        movie.save()
-        return redirect('movies:detail', movie_pk=movie.pk)
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            movie = form
+            movie.save()
+            return redirect('movies:index')
 
-    return render(request, 'movies/create.html')
+    # create
+    form = MovieForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'movies/create.html', context)
+
+# def create(request):
+#     if request.method == 'POST':
+#         data = request.POST
+#         movie = Movie()
+#         movie.title = data.get('title')
+#         movie.content = data.get('content')
+#         movie.save()
+#         return redirect('movies:detail', movie_pk=movie.pk)
+#
+#     return render(request, 'movies/create.html')
 
 
 def edit(request, movie_pk):
-    print(request.method)
+    # print(request.method)
+    # movie = Movie.objects.get(pk=movie_pk)
+    # print(movie.title)
+    # context = {
+    #     'movie': movie
+    # }
     movie = Movie.objects.get(pk=movie_pk)
-    print(movie.title)
+    form = MovieForm(request.POST, instance=movie)
     context = {
+        'form': form,
         'movie': movie
     }
-    return render(request, 'movies/create.html', context)
+    print(movie)
+    return render(request, 'movies/edit.html', context)
 
 
 def delete(request, movie_pk):
