@@ -7,11 +7,13 @@
     <ul>
     {% for movie in movies %}
     <li><a href="/movies/detail/{{ movie.pk }}/">{{ movie.title }}</a></li>
-        {% if movie.is_open %}
-        <p>개봉여부: 개봉완료</p>
-        {% else %}
-        <p>개봉여부: 개봉 전</p>
-        {% endif %}
+        <p>개봉여부:
+      <input type="checkbox" value="{{ movie.is_open }}" {% if movie.is_open %}checked{% endif %}>
+{#        {% if movie.is_open %}#}
+{#        <p>개봉여부: 개봉완료</p>#}
+{#        {% else %}#}
+{#        <p>개봉여부: 개봉 전</p>#}
+{#        {% endif %}#}
     {% endfor %}
     {% else %}
     <li>영화가 없습니다</li>
