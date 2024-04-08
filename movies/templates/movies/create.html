@@ -4,18 +4,20 @@
     <h1>이 곳에서 영화를 생성합니다</h1>
     <form action={% url 'movies:create' %} method="POST">
     {% csrf_token %}
-    <div>
-        <label for="title">영화 제목: </label>
-        <input type="text" name="title" id="title">
-    </div>
-        <br>
-    <div>
-        <label for="content">영화 콘텐츠: </label>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        <br>
-    </div>
-        <br>
-            <input type="submit" value="제출">
+{#    <div>#}
+{#        <label for="title">영화 제목: </label>#}
+{#        <input type="text" name="title" id="title">#}
+{#    </div>#}
+{#        <br>#}
+{#    <div>#}
+{#        <label for="content">영화 콘텐츠: </label>#}
+{#        <textarea name="content" id="content" cols="30" rows="10"></textarea>#}
+{#        <br>#}
+{#    </div>#}
+{#        <br>#}
+    {{ form }}
+    <br>
+    <input type="submit" value="제출">
     </form>
     <br>
     <a href="/movies/">메인 페이지</a>
