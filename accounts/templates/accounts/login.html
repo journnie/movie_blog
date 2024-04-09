@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'movies/base.html' %}
+{% block content %}
+	<h1>로그인 페이지</h1>
+    <input type="text" value="아이디" name="user_id">
+    <input type="text" value=비밀번호 name="user_pw">
+    <input type="submit" value="로그인">
+{% endblock content %}
