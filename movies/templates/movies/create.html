@@ -1,9 +1,10 @@
-{% extends 'movies/base.html' %}
+{% extends 'base.html' %}
 {% block  content %}
     <h1>이 곳에서 영화를 생성합니다</h1>
     <form action="/movies/" method="GET">
         <input type="text" name="movie">
-        <input type="submit">
+        <input type="submit" value="제출">
     </form>
+    <br>
     <a href="/movies/">메인 페이지</a>
 {% endblock content %}

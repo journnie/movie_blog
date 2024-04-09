@@ -8,10 +8,8 @@ def index(request):
     }
     return render(request, 'movies/index.html', context)
 
-def create_movie(request):
-    return render(request, 'movies/create_movie.html')
+def create(request):
+    return render(request, 'movies/create.html')
 
-def movie_detail(request, movie):
-    print(request)
-    print(movie)
-    return render(request, 'movies/movie_detail.html')
+def detail(request, movie):
+    return render(request, 'movies/detail.html')
