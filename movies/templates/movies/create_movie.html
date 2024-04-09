@@ -1,0 +1,9 @@
+{% extends 'movies/base.html' %}
+{% block  content %}
+    <h1>이 곳에서 영화를 생성합니다</h1>
+    <form action="/movies/" method="GET">
+        <input type="text" name="movie">
+        <input type="submit">
+    </form>
+    <a href="/movies/">메인 페이지</a>
+{% endblock content %}
