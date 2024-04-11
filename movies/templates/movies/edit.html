@@ -5,17 +5,17 @@
     <form action={% url 'movies:create' %} method="POST">
     {% csrf_token %}
     <div>
-        <label for="title">영화 제목: </label>
-        <input type="text" name="title" id="title">
+        <label for="title">영화 제목:</label>
+        <input type="text" name="title" id="title" value="{{ movie.title }}">
     </div>
         <br>
     <div>
         <label for="content">영화 콘텐츠: </label>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <textarea name="content" id="content" cols="30" rows="10">{{ movie.content }}</textarea>
         <br>
     </div>
         <br>
-            <input type="submit" value="제출">
+        <input type="submit" value="수정">
     </form>
     <br>
     <a href="/movies/">메인 페이지</a>

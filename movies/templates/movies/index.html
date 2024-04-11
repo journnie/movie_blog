@@ -3,9 +3,16 @@
 	<h1>영화 블로그 프로젝트 메인 페이지</h1>
     <p>영화 블로그 내용을 관리합니다</p>
 
-    {% if movie %}
+    {% if movies %}
     <ul>
-    <li><a href="/movies/detail/{{ movie }}/">{{ movie }}</a></li>
+    {% for movie in movies %}
+    <li><a href="/movies/detail/{{ movie.pk }}/">{{ movie.title }}</a></li>
+        {% if movie.is_open %}
+        <p>개봉여부: 개봉완료</p>
+        {% else %}
+        <p>개봉여부: 개봉 전</p>
+        {% endif %}
+    {% endfor %}
     {% else %}
     <li>영화가 없습니다</li>
     </ul>
