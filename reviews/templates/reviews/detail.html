@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>생성 영화 상세 페이지</h1>
+    <hr>
+    <p>{{ review.pk }}번째 리뷰</p>
+    <p>영화 제목: {{ review.movie_title }}</p>
+    <p>리뷰 제목: {{ review.review_title }}</p>
+    <p>리뷰 콘텐츠: {{ review.content }}</p>
+    <p>리뷰 작성일: {{ review.created_at }}</p>
+    <p>최근 수정 일시: {{ review.updated_at }}</p>
+    <hr>
+{#    <form action={% url 'movies:edit' movie.pk %}>#}
+{#    <form action='/review/edit/{{ review.pk }}'>#}
+    <form action='/review/create/'>
+    <input type="submit" value="수정">
+    </form>
+    <hr>
+    <form action={% url 'reviews:delete' review.pk %}>
+    <input type="submit" value="삭제">
+    </form>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>리뷰 생성 페이지</h1>
+    <form action="" method="POST">
+    {% csrf_token %}
+	{{ form }}
+        <input type="submit" value="작성완료">
+    </form>
+    <br>
+
+{% endblock content %}
