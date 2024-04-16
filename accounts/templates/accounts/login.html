@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 	<h1>로그인 페이지</h1>
-    <input type="text" placeholder="아이디" name="user_id">
-    <input type="text" placeholder="비밀번호" name="user_pw">
-    <input type="submit" value="로그인">
+{#    <input type="text" placeholder="아이디" name="user_id">#}
+{#    <input type="text" placeholder="비밀번호" name="user_pw">#}
+    <form action={% url "accounts:login" %} method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="로그인">
+    </form>
+
 {% endblock content %}
